@@ -10,8 +10,9 @@ var bio = {
 		"email" : "shawn@shawnroe.com",
 		"github" : "vultor",
 		"twitter" : "@kunostories",
-		"Location" : "South Korea"
+		"location" : "South Korea"
 	},
+	"bioPic": "images/sroe-headshot.jpg",
 	"skills" : ["HTML5", "CSS3", "JS", "PHP", "Business Vision Consultant", "Educator", "Story-teller", "Pitching", "Hitting HR's"]
 }
 
@@ -101,9 +102,22 @@ var projects = {
 
 var formattedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
+var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contact.twitter);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
+var formattedWelcomMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+$("#topContacts").prepend(formattedEmail);
+$("#topContacts").append(formattedTwitter);
+$("#topContacts").append(formattedGithub);
+$("#topContacts").append(formattedLocation);
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomMsg);
 
 if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);

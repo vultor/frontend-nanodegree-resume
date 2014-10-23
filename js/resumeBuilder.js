@@ -1,7 +1,3 @@
-var name = "Shawn Roe";
-var role = "Web Developer";
-var email = "shawn@shawnroe.com";
-
 var bio = {
 	"name" : "Shawn Roe",
 	"role"  : "Web Developer",
@@ -78,7 +74,7 @@ var work = {
 		"title": "TESOL Instructor, Graduate School Professor, English Conversation Instructor",
 		"location": "Naju, South Korea",
 		"dates": "2010-2012",
-		"description": "Trained TESOL certificate candidates on ‘how to teach writing’, assisted in the development of curriculum and material design for the course, taught IELTS speaking test preparation Graduate School students, conversational English to University undergraduates, and the highest level of speaking to adult Language Education Center students."
+		"description": "Trained TESOL certificate candidates on 'how to teach writing', assisted in the development of curriculum and material design for the course, taught IELTS speaking test preparation Graduate School students, conversational English to University undergraduates, and the highest level of speaking to adult Language Education Center students."
 	  }
 	]
 }
@@ -100,8 +96,8 @@ var projects = {
 	]
 }
 
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
 var formattedTwitter = HTMLtwitter.replace("%data%", bio.contact.twitter);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
@@ -135,12 +131,14 @@ if (bio.skills.length > 0) {
 
 function displayWork() {
   for (var job in work.jobs) {
-    // creat new div for work experience  
     $("#workExperience").append(HTMLworkStart);
     var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
     var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
     $(".work-entry:last").append(formattedEmployerTitle);
+
+    var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
+    $(".work-entry:last").append(formattedLocation);
 
     var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
     $(".work-entry:last").append(formattedDates);
@@ -190,4 +188,8 @@ $(document).click(function(loc) {
     logClicks(x,y);
 });
 
-projects.display()
+// bio.display()
+// education.display()
+// work.display()
+// portfolio.display()
+// map.display()

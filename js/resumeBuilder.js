@@ -38,6 +38,12 @@ $("#topContacts").append(formattedLocation);
 $("#header").append(formattedBioPic);
 $("#header").append(formattedWelcomMsg);
 
+// contacts in footer as well
+$("#footerContacts").prepend(formattedEmail);
+$("#footerContacts").append(formattedTwitter);
+$("#footerContacts").append(formattedGithub);
+$("#footerContacts").append(formattedLocation);
+
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
 
@@ -99,12 +105,14 @@ var education = {
 education.display = function() {
   for (var school in education.schools) {
     $("#education").append(HTMLschoolStart);
+    
+    var formattedURL = HTMLschoolURL.replace("%data%",education.schools[school].url);
 
     var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name);
 
     var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
 
-    formattedName = formattedName + formattedDegree;
+    formattedName = formattedURL + formattedName + formattedDegree;
     $(".education-entry:last").append(formattedName);
 
     var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
@@ -122,13 +130,12 @@ education.display = function() {
   		$("#education").append(HTMLschoolStart);
 	    var formattedTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
 
+	    var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
+
 	    var formattedSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
 
-	    formattedTitle = formattedTitle + formattedSchool;
-	    $(".education-entry:last").append(formattedTitle);
-
-	    var formattedURL = HTMLonlineTitle.replace("%data%",education.onlineCourses[course].url);
-	    $(".education-entry:last").append(formattedURL);
+	    formattedOnline = formattedURL + formattedTitle + formattedSchool;
+	    $(".education-entry:last").append(formattedOnline);
 	}
 }
 
@@ -213,13 +220,15 @@ var projects = {
 		"title": "SRoeCo Solar Website",
 		"dates": "2008-2014",
 		"description": "SRoeCo Solar is an independent, solar information website that provides objective, verifiable, solar information and seeks to present it in an easily-understandable way. It is committed to simplifying the solar installation process by providing solar knowledge, calculators, and a sortable, searchable solar panel comparison table. SRoeCo Solar simplifies solar to help the average person feel more comfortable making an informed decision to install solar panels. More solar is better.",
-		"images": ["http://www.sroeco.com/solar/sroeco_solar_title.png"]
+		"images": ["../portfolio/images/sroeco-solar-logo.png"],
+		"url": "http://sroeco.com/solar"
 	},
 	{
 		"title": "Sinful Treats Bakery",
 		"dates": 2014,
-		"description": "Sinful Treats Bakery is a sweet boutique bakery located in Hampton Roads, Virginia. Chef Stephanie Rolla (Chef Steph) bakes sinfully delicious desserts from scratch just like your Grandma used to make… except she’s not your grandma. Sinful Treats specializes in baked goods like cupcakes, Monster Cookies, birthday and wedding cakes with unique flavor combinations like her famous (with adults) Grand Marnier cake or Guiness cake. Kids love things like our Ninja Turtle birthday cake, and elephant-shaped sugar cookies.",
-		"images": ["http://eatsinfultreats.com/test/wp-content/uploads/2014/02/sinful-treats-logo320x191.png"]
+		"description": "Sinful Treats Bakery is a sweet boutique bakery located in Hampton Roads, Virginia. Chef Stephanie Rolla (Chef Steph) bakes sinfully delicious desserts from scratch just like your Grandma used to make... except she's not your grandma. Sinful Treats specializes in baked goods like cupcakes, Monster Cookies, birthday and wedding cakes with unique flavor combinations like her famous (with adults) Grand Marnier cake or Guiness cake. Kids love things like our Ninja Turtle birthday cake, and elephant-shaped sugar cookies.",
+		"images": ["../portfolio/images/sinful-treats-logo.png"],
+		"url": "http://eatsinfultreats.com"
 	}
 	]
 }
@@ -230,7 +239,19 @@ projects.display = function() {
     	// create div for each project
         $("#projects").append(HTMLprojectStart);
 
+        var formattedURL = HTMLprojectURL.replace("%data%",projects.projects[project].url);
+        
+        // only show image if is exists
+        if (projects.projects[project].images.length > 0) {
+            for (image in projects.projects[project].images) {
+                var formattedImage = formattedURL + HTMLprojectImage.replace("%data%",projects.projects[project].images[image]); 
+                $(".project-entry:last").append(formattedImage);
+            }
+        }
+
         var formattedTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
+
+        var formattedTitle = formattedURL + formattedTitle;
         $(".project-entry:last").append(formattedTitle);
         
         var formattedDates = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
@@ -239,13 +260,6 @@ projects.display = function() {
         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
         $(".project-entry:last").append(formattedDescription);
 
-        // only show image if is exists
-        if (projects.projects[project].images.length > 0) {
-            for (image in projects.projects[project].images) {
-                var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]); 
-                $(".project-entry:last").append(formattedImage);
-            }
-        }
     }
 }
 // run projects display

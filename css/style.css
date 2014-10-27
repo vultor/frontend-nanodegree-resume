@@ -1,49 +1,55 @@
-*{
-    padding:0;
-    margin:0;
-    font-family: 'Roboto', sans-serif;
+*, body {
+  padding:0;
+  margin:0;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: #000;
 }
-
-
 
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.work-entry, .project-entry {
   padding-bottom: 1em;
 }
 
+h1,h2 {
+  font-family: "Berkshire Swash", cursive;
+}
 
 h1 {
-
-  font-size: 40px;
+  font-size: 48px;
   color: #F5A623;
-  line-height: 48px;
+  line-height: 56px;
   display: inline;
 }
 
 h2 {
   font-style: bold;
-  font-size: 24px;
-  color: #999999;
+  font-size: 2em;
+  color: #333;
   line-height: 29px;
   padding: 10px;
 }
 
 h3 {
   font-style: italic;
-  font-size: 20px;
+  font-size: 1.6em;
   color: #000000;
   line-height: 22px;
 }
 
 h4 {
   font-style: bold;
-  font-size: 14px;
+  font-size: 1.1em;
   color: #4A4A4A;
-  line-height: 17px;
+  line-height: 20px;
 }
 
-h2, h3, {
+h2, h3 {
   padding:10px;
   padding-left: 5%;
   padding-right: 5%;
@@ -52,7 +58,7 @@ h2, h3, {
 
 .date-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: .9em;
   color: #999999;
   line-height: 16px;
   float: left;
@@ -60,7 +66,7 @@ h2, h3, {
 
 .location-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: .9em;
   color: #999999;
   line-height: 16px;
   float: right;
@@ -68,9 +74,9 @@ h2, h3, {
 }
 
 p {
-  font-size: 14px;
-  color: #333333;
-  line-height: 21px;
+  font-size: 1em;
+  color: #000;
+  line-height: 1em;
 }
 
 a {
@@ -82,7 +88,7 @@ a {
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
+  font-size: 1.3em;
   color: #F3F3F3;
   line-height: 28px;
 }
@@ -90,6 +96,10 @@ a {
 #skillsH3 {
   color: #F5AE23;
   display: none;
+}
+
+#now {
+  color: #F5AE23;
 }
 
 #skills {
@@ -112,7 +122,6 @@ a {
 .gray {
   background-color: #F3F3F3;
   padding-bottom: 10px;
-  clear:both;
 }
 
 .dark-gray {
@@ -130,17 +139,15 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px;
 }
 
 .center-content {
-  padding: 5%;
+  padding: 2%;
 }
 
 ul {
   list-style-type: none;
 }
-
 
 .biopic {
   float: left;
@@ -153,14 +160,9 @@ img {
   padding: 10px;
 }
 
-.pull-right {
-  float: right;
-}
-
 .clearfix {
   overflow: auto;
 }
-
 
 /* Bar chart stuff */
 .chart div {

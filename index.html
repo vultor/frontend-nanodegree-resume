@@ -15,6 +15,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <scripts> for JavaScript files to build interactions.
 -->
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:100,300,500" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
   <link href="css/style.css" rel="stylesheet" type="text/css"></link>
 
   <!--
@@ -44,7 +47,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <meta name="viewport" content="width=device-width">
 </head>
 <body unresolved>
-  <div id="main">
+  <div id="main" class="container-fluid">
 
     <!--
     Everything from here to the <script> tag below is the skeleton of your
@@ -52,37 +55,50 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="header" class="center-content">
-      <ul id="topContacts" class='flex-box'></ul>
+    <div class="row">
+      <div id="header" class="col-sm-12 center-content">
+        <ul id="topContacts" class='flex-box'></ul>
+      </div>
+      <div style='clear: both;'></div>
     </div>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
+    <div class="row">
+      <div id="workExperience" class='col-sm-12 gray'>
+        <h2>Work Experience</h2>
+      </div>
     </div>
-    <div id="projects">
-      <h2>Projects</h2>
+    <div class="row">
+      <div id="projects" class="col-sm-12">
+        <h2>Projects</h2>
+      </div>
     </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
+    <div class="row">
+      <div id="education" class="gray">
+        <h2>Education</h2>
+      </div>
+    </div> <!--/.row -->
+    <div class="row">
+      <div id="skillsChart" class="col-sm-6">
+        <h2>Skills Chart</h2>
+      </div>
+      <div id="mapDiv" class="col-sm-6">
+        <h2>Where I've Lived and Worked</h2>
+      </div>
     </div>
-    <div id="skillsChart">
-      <h2>Skills Chart</h2>
+    <div class="row">
+      <div id="letsConnect" class='col-sm-12 dark-gray'>
+        <h2 class='orange center-text'>Let's Connect</h2>
+        <ul id="footerContacts" class="flex-box">
+        </ul>
+      </div>
     </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-      <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
+  </div><!--/#main -->
 
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
   writing. In resumeBuilder.js, you'll be writing code that builds the resume
   dynamically when this website, index.html, is opened.
   -->
+  <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="js/resumeBuilder.js"></script>
 
 

@@ -15,7 +15,7 @@ var bio = {
 		"location" : "Gwangju, South Korea"
 	},
 	"bioPic": "images/sroe-headshot.jpg",
-	"skills" : ["HTML5", "CSS3", "JS", "PHP", "Idea Man", "Educator", "Story-teller"]
+	"skills" : ["HTML5", "CSS3", "JS", "PHP", "Teacher"]
 }
 
 // formatted
@@ -76,6 +76,7 @@ var education = {
 		"location": "Charlottesville, VA, USA",
 		"degree": "BA",
 		"major": "Psychology",
+		"minor": "Astronomy",
 		"dates": "2001-2005",
 		"url": "http://www.virginia.edu/"
 	  }
@@ -178,6 +179,27 @@ var work = {
 		"location": "Naju, South Korea",
 		"dates": "2010-2012",
 		"description": "Trained TESOL certificate candidates on 'how to teach writing', assisted in the development of curriculum and material design for the course, taught IELTS speaking test preparation Graduate School students, conversational English to University undergraduates, and the highest level of speaking to adult Language Education Center students."
+	  },
+	  {
+		"employer": "LASC and POLY Language Schools",
+		"title": "Manager, Head of Human Resources, TOEIC &amp; TOEFL Instructor",
+		"location": "Irvine, CA, USA",
+		"dates": "2009-2010",
+		"description": "Managed 12 employees, responsible for hiring all positions for 3 campuses. Taught TOEIC, TOEFL, English grammar, reading, writing, speaking and listening to foreign students mostly from Asian countries."
+	  },
+	  {
+		"employer": "SAIC (Scientific Applications International Corporation)",
+		"title": "Website Manager, Intern",
+		"location": "Charlottesville, VA, USA",
+		"dates": "2004-2005",
+		"description": "Maintained websites, created an online database of books on sustainability, created Technology Assessments for US Army's Environmental Requirements and Technology Assessments (AERTA) Database, edited drafts with MS Word, improved PowerPoint presentations, and organized materials for US Army sustainability workshop presentations."
+	  },
+	  {
+		"employer": "Blue Bird Cafe",
+		"title": "Bartender, Server",
+		"location": "Charlottesville, VA, USA",
+		"dates": "2005-2006",
+		"description": "Served customers in an upscale restaurant. Averaged over 20% tip based on nightly sales."
 	  }
 	]
 }
@@ -219,16 +241,30 @@ var projects = {
 	{
 		"title": "SRoeCo Solar Website",
 		"dates": "2008-2014",
-		"description": "SRoeCo Solar is an independent, solar information website that provides objective, verifiable, solar information and seeks to present it in an easily-understandable way. It is committed to simplifying the solar installation process by providing solar knowledge, calculators, and a sortable, searchable solar panel comparison table. SRoeCo Solar simplifies solar to help the average person feel more comfortable making an informed decision to install solar panels. More solar is better.",
-		"images": ["../portfolio/images/sroeco-solar-logo.png"],
+		"description": "SRoeCo Solar is an independent, solar information website that provides objective, verifiable, solar information and seeks to present it in an easily-understandable way. Built on WordPress with a custom theme.",
+		"images": ["../portfolio/images/sroeco-solar-layout.png"],
 		"url": "http://sroeco.com/solar"
 	},
 	{
 		"title": "Sinful Treats Bakery",
 		"dates": 2014,
-		"description": "Sinful Treats Bakery is a sweet boutique bakery located in Hampton Roads, Virginia. Chef Stephanie Rolla (Chef Steph) bakes sinfully delicious desserts from scratch just like your Grandma used to make... except she's not your grandma. Sinful Treats specializes in baked goods like cupcakes, Monster Cookies, birthday and wedding cakes with unique flavor combinations like her famous (with adults) Grand Marnier cake or Guiness cake. Kids love things like our Ninja Turtle birthday cake, and elephant-shaped sugar cookies.",
-		"images": ["../portfolio/images/sinful-treats-logo.png"],
+		"description": "Sinful Treats Bakery is a sweet boutique bakery located in Hampton Roads, Virginia.Built on WordPress with a custom theme.",
+		"images": ["../portfolio/images/sinful-treats-layout.png"],
 		"url": "http://eatsinfultreats.com"
+	},
+	{
+		"title": "Michael Simon Art",
+		"dates": 2014,
+		"description": "An online art portfolio for the American artist Michael Anthony Simon. Built from scratch on Twitter Bootstrap.",
+		"images": ["../portfolio/images/simon-art-layout.png"],
+		"url": "http://vultor.com/simonart"
+	},
+	{
+		"title": "Sunshot Solar VA",
+		"dates": 2013,
+		"description": "Sunshot Solar Virginia promotes the use of solar energy in Virginia. Learn about Virginia solar incentives, how solar works, solar efficiency, solar costs, and more. Built from scratch on Twitter Bootstrap.",
+		"images": ["../portfolio/images/hand-sun-logo.png"],
+		"url": "http://sunshotsolar.com"
 	}
 	]
 }
@@ -240,7 +276,7 @@ projects.display = function() {
         $("#projects").append(HTMLprojectStart);
 
         var formattedURL = HTMLprojectURL.replace("%data%",projects.projects[project].url);
-        
+
         // only show image if is exists
         if (projects.projects[project].images.length > 0) {
             for (image in projects.projects[project].images) {
@@ -259,7 +295,6 @@ projects.display = function() {
         
         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
         $(".project-entry:last").append(formattedDescription);
-
     }
 }
 // run projects display
@@ -280,5 +315,150 @@ function inName() {
     return aName[0] + " " + aName[1];
 }
 
+// click locations
+$(document).click(function(loc) {
+	var x = loc.pageX;
+	var y = loc.pageY;
+	logClicks(x,y);
+});
+
 // display map
 $("#mapDiv").append(googleMap);
+
+// visualization from http://bl.ocks.org/clayzermk1/9142407
+$('#skillsH3').prepend('<h4 id="now" class="pull-right">Current Time:</h4>')
+
+var now = new Date(d3.time.year.floor(new Date()));
+
+var spacetime = d3.select('#now');
+var width = 160,
+    height = 160,
+    radius = Math.min(width, height);
+
+var radii = {
+  "sun": radius / 8,
+  "earthOrbit": radius / 2.5,
+  "earth": radius / 32,
+  "moonOrbit": radius / 16,
+  "moon": radius / 96
+};
+
+// Space
+var svg = spacetime.append("svg")
+  .attr("width", width)
+  .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+// Sun
+svg.append("circle")
+  .attr("class", "sun")
+  .attr("r", radii.sun)
+  .style("fill", "rgba(255, 204, 0, 1.0)");
+
+// Earth's orbit
+svg.append("circle")
+  .attr("class", "earthOrbit")
+  .attr("r", radii.earthOrbit)
+  .style("fill", "none")
+  .style("stroke", "rgba(255, 204, 0, 0.25)");
+
+// Current position of Earth in its orbit
+var earthOrbitPosition = d3.svg.arc()
+  .outerRadius(radii.earthOrbit + 1)
+  .innerRadius(radii.earthOrbit - 1)
+  .startAngle(0)
+  .endAngle(0);
+svg.append("path")
+  .attr("class", "earthOrbitPosition")
+  .attr("d", earthOrbitPosition)
+  .style("fill", "rgba(255, 204, 0, 0.75)");
+
+// Earth
+svg.append("circle")
+  .attr("class", "earth")
+  .attr("r", radii.earth)
+  .attr("transform", "translate(0," + -radii.earthOrbit + ")")
+  .style("fill", "rgba(113, 170, 255, 1.0)");
+
+// Time of day
+var day = d3.svg.arc()
+  .outerRadius(radii.earth)
+  .innerRadius(0)
+  .startAngle(0)
+  .endAngle(0);
+svg.append("path")
+  .attr("class", "day")
+  .attr("d", day)
+  .attr("transform", "translate(0," + -radii.earthOrbit + ")")
+  .style("fill", "rgba(53, 110, 195, 1.0)");
+
+// Moon's orbit
+svg.append("circle")
+  .attr("class", "moonOrbit")
+  .attr("r", radii.moonOrbit)
+  .attr("transform", "translate(0," + -radii.earthOrbit + ")")
+  .style("fill", "none")
+  .style("stroke", "rgba(113, 170, 255, 0.25)");
+
+// Current position of the Moon in its orbit
+var moonOrbitPosition = d3.svg.arc()
+  .outerRadius(radii.moonOrbit + 1)
+  .innerRadius(radii.moonOrbit - 1)
+  .startAngle(0)
+  .endAngle(0);
+svg.append("path")
+  .attr("class", "moonOrbitPosition")
+  .attr("d", moonOrbitPosition(now))
+  .attr("transform", "translate(0," + -radii.earthOrbit + ")")
+  .style("fill", "rgba(113, 170, 255, 0.75)");
+
+// Moon
+svg.append("circle")
+  .attr("class", "moon")
+  .attr("r", radii.moon)
+  .attr("transform", "translate(0," + (-radii.earthOrbit + -radii.moonOrbit) + ")")
+  .style("fill", "rgba(150, 150, 150, 1.0)");
+
+// Update the clock every second
+setInterval(function () {
+  now = new Date();
+  
+  var interpolateEarthOrbitPosition = d3.interpolate(earthOrbitPosition.endAngle()(), (2 * Math.PI * d3.time.hours(d3.time.year.floor(now), now).length / d3.time.hours(d3.time.year.floor(now), d3.time.year.ceil(now)).length));
+  
+  var interpolateDay = d3.interpolate(day.endAngle()(), (2 * Math.PI * d3.time.seconds(d3.time.day.floor(now), now).length / d3.time.seconds(d3.time.day.floor(now), d3.time.day.ceil(now)).length));
+  
+  var interpolateMoonOrbitPosition = d3.interpolate(moonOrbitPosition.endAngle()(), (2 * Math.PI * d3.time.hours(d3.time.month.floor(now), now).length / d3.time.hours(d3.time.month.floor(now), d3.time.month.ceil(now)).length));
+  
+  d3.transition().tween("orbit", function () {
+    return function (t) {
+      // Animate Earth orbit position
+      d3.select(".earthOrbitPosition").attr("d", earthOrbitPosition.endAngle(interpolateEarthOrbitPosition(t)));
+
+      // Transition Earth
+      d3.select(".earth")
+        .attr("transform", "translate(" + radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + "," + -radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ")");
+
+      // Animate day
+      // Transition day
+      d3.select(".day")
+        .attr("d", day.endAngle(interpolateDay(t)))
+        .attr("transform", "translate(" + radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + "," + -radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ")");
+      
+      // Transition Moon orbit
+      d3.select(".moonOrbit")
+        .attr("transform", "translate(" + radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + "," + -radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ")");
+
+      // Animate Moon orbit position
+      // Transition Moon orbit position
+      d3.select(".moonOrbitPosition")
+        .attr("d", moonOrbitPosition.endAngle(interpolateMoonOrbitPosition(t)))
+        .attr("transform", "translate(" + radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + "," + -radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + ")");
+      
+      // Transition Moon
+      d3.select(".moon")
+        .attr("transform", "translate(" + (radii.earthOrbit * Math.sin(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + radii.moonOrbit * Math.sin(interpolateMoonOrbitPosition(t) - moonOrbitPosition.startAngle()())) + "," + (-radii.earthOrbit * Math.cos(interpolateEarthOrbitPosition(t) - earthOrbitPosition.startAngle()()) + -radii.moonOrbit * Math.cos(interpolateMoonOrbitPosition(t) - moonOrbitPosition.startAngle()())) + ")");
+    };
+  });
+}, 1000);
+$('svg').attr("class", "pull-right");

@@ -270,30 +270,36 @@ var projects = {
 }
 
 projects.display = function() {
-    for (project in projects.projects) {
-    	
-    	// create div for each project
-        $("#projects").append(HTMLprojectStart);
+    //for (project in projects.projects) {
 
-        var formattedURL = HTMLprojectURL.replace("%data%",projects.projects[project].url);
+	$("#projects").append(HTMLprojectRow);
+
+    for (var i=0; i<projects.projects.length; i++) {
+    	// create div for each project
+        $(".projects-row").append(HTMLprojectStart);
+
+        var formattedURL = HTMLprojectURL.replace("%data%",projects.projects[i].url);
 
         // only show image if is exists
-        if (projects.projects[project].images.length > 0) {
-            for (image in projects.projects[project].images) {
-                var formattedImage = formattedURL + HTMLprojectImage.replace("%data%",projects.projects[project].images[image]); 
+        if (projects.projects[i].images.length > 0) {
+            for (image in projects.projects[i].images) {
+                var formattedImage = formattedURL + HTMLprojectImage.replace("%data%",projects.projects[i].images[image]); 
                 $(".project-entry:last").append(formattedImage);
             }
         }
+        else {
+        	$(".project-entry:last").append(formattedURL);
+        }
 
-        var formattedTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
+        var formattedTitle = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
 
         var formattedTitle = formattedURL + formattedTitle;
         $(".project-entry:last").append(formattedTitle);
         
-        var formattedDates = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
+        var formattedDates = HTMLprojectDates.replace("%data%",projects.projects[i].dates);
         $(".project-entry:last").append(formattedDates);
         
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
         $(".project-entry:last").append(formattedDescription);
     }
 }

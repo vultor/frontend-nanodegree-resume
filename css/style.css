@@ -21,7 +21,7 @@ h1,h2 {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 48px;
   color: #F5A623;
   line-height: 56px;
   display: inline;
@@ -73,7 +73,7 @@ h2, h3 {
 }
 
 .text-med {
-  font-size: 1.266em;
+  font-size: 1.666em;
 }
 
 p {
@@ -205,20 +205,18 @@ span {
 }
 
 @media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
+
 }
 
 @media only screen and (max-width: 750px) {
   #letsConnect {
     margin-top: 10%;
   }
-  .biopic {
-    width: 150px;
-  }
   .welcome-message {
     display: none;
+  }
+  h1 {
+    font-size: 36px;
   }
 }
 

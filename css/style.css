@@ -21,7 +21,7 @@ h1,h2 {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 36px;
   color: #F5A623;
   line-height: 56px;
   display: inline;
@@ -70,7 +70,10 @@ h2, h3 {
   color: #999999;
   line-height: 16px;
   float: right;
+}
 
+.text-med {
+  font-size: 1.266em;
 }
 
 p {
@@ -125,12 +128,12 @@ a {
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background-color: #0088CC;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #0088CC;
 }
 
 .flex-box {
@@ -149,11 +152,18 @@ ul {
   list-style-type: none;
 }
 
+li {
+  font-size: .8em;
+}
+
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
   display: none;
+}
+
+img.dark {
+  opacity: .4;
 }
 
 img {
@@ -162,6 +172,10 @@ img {
 
 .clearfix {
   overflow: auto;
+}
+
+hr {
+  margin-bottom: 5px;
 }
 
 /* Bar chart stuff */

@@ -6,7 +6,7 @@
 
 var bio = {
 	"name" : "Shawn Roe",
-	"role"  : "Web Developer",
+	"roles"  : ["Web Developer", "Teacher"],
 	"welcomeMessage" : "Simplifying solar and making things better through the web.",
 	"contacts" : {
 		"email" : "shawn@shawnroe.com",
@@ -14,29 +14,47 @@ var bio = {
 		"twitter" : "@kunostories",
 		"location" : "Gwangju, South Korea"
 	},
-	"bioPic": "images/sroe-headshot.jpg",
+	"webPic": "images/sroe-ocraroe-100.jpg",
+	"teacherPic": "images/sroe-headshot-100.jpg",
 	"skills" : ["HTML5", "CSS3", "JS", "PHP", "Teacher"]
 }
 
 // formatted
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedRole0 = HTMLheaderRole.replace("%data%", bio.roles[0]);
+var formattedRole1 = HTMLheaderRole.replace("%data%", bio.roles[1]);
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 var formattedWelcomMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+
+// teacher pic
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.teacherPic);
+$("#header").append(formattedBioPic);
+$("img.biopic:last").addClass("teacher");
+
+// web developer pic
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.webPic);
+$("#header").append(formattedBioPic);
+$("img.biopic:last").addClass("web");
+$("img.dark:last").removeClass("dark");
+
+$("#header img").mouseenter(function() {
+	$("#header img").addClass("dark");
+	$(this).removeClass("dark");
+});
 
 // prepend and appended to resume
-$("#header").prepend(formattedRole);
+$("#header").prepend(formattedRole1);
+$("#header").prepend(formattedRole0);
+	$("#header span.role:last").hide();
 $("#header").prepend(formattedName);
 $("#topContacts").prepend(formattedEmail);
 $("#topContacts").append(formattedTwitter);
 $("#topContacts").append(formattedGithub);
 $("#topContacts").append(formattedLocation);
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomMsg);
+// $("#header").append(formattedWelcomMsg);
 
 // contacts in footer as well
 $("#footerContacts").prepend(formattedEmail);
@@ -193,13 +211,6 @@ var work = {
 		"location": "Charlottesville, VA, USA",
 		"dates": "2004-2005",
 		"description": "Maintained websites, created an online database of books on sustainability, created Technology Assessments for US Army's Environmental Requirements and Technology Assessments (AERTA) Database, edited drafts with MS Word, improved PowerPoint presentations, and organized materials for US Army sustainability workshop presentations."
-	  },
-	  {
-		"employer": "Blue Bird Cafe",
-		"title": "Bartender, Server",
-		"location": "Charlottesville, VA, USA",
-		"dates": "2005-2006",
-		"description": "Served customers in an upscale restaurant. Averaged over 20% tip based on nightly sales."
 	  }
 	]
 }
@@ -229,6 +240,24 @@ work.display = function() {
 
 // envoke the function
 work.display();
+
+// change depending on role
+$("#header img.web").mouseenter(function() {
+	$("#header span.role:first").show();
+	$("#header span.role:last").hide();
+	$(".work-entry").slideDown();
+	formattedRole = HTMLheaderRole.replace("%data%", bio.roles[0]);
+});
+
+$("#header img.teacher").mouseenter(function() {
+	$("#header span.role:first").hide();
+	$("#header span.role:last").show();
+	$("#workExperience :nth-child(2)").slideUp();
+	$("#workExperience :nth-child(7)").slideUp();
+	formattedRole = HTMLheaderRole.replace("%data%", bio.roles[1]);
+});
+
+
 
 /**********
  *
@@ -331,7 +360,7 @@ $(document).click(function(loc) {
 // display map
 $("#mapDiv").append(googleMap);
 
-// visualization from http://bl.ocks.org/clayzermk1/9142407
+/* visualization from http://bl.ocks.org/clayzermk1/9142407
 $('#skillsH3').prepend('<h4 id="now" class="pull-right">Current Time:</h4>')
 
 var now = new Date(d3.time.year.floor(new Date()));
@@ -468,3 +497,4 @@ setInterval(function () {
   });
 }, 1000);
 $('svg').attr("class", "pull-right");
+*/

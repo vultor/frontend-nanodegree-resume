@@ -271,28 +271,28 @@ var projects = {
 		"title": "SRoeCo Solar Website",
 		"dates": "2008-2014",
 		"description": "SRoeCo Solar is an independent, solar information website that provides objective, verifiable, solar information and seeks to present it in an easily-understandable way. Built on WordPress with a custom theme.",
-		"images": ["../portfolio/images/sroeco-solar-layout.png"],
+		"images": ["images/sroeco-solar-layout.png"],
 		"url": "http://sroeco.com/solar"
 	},
 	{
 		"title": "Sinful Treats Bakery",
 		"dates": 2014,
 		"description": "Sinful Treats Bakery is a sweet boutique bakery located in Hampton Roads, Virginia.Built on WordPress with a custom theme.",
-		"images": ["../portfolio/images/sinful-treats-layout.png"],
+		"images": ["images/sinful-treats-layout.png"],
 		"url": "http://eatsinfultreats.com"
 	},
 	{
 		"title": "Michael Simon Art",
 		"dates": 2014,
 		"description": "An online art portfolio for the American artist Michael Anthony Simon. Built from scratch on Twitter Bootstrap.",
-		"images": ["../portfolio/images/simon-art-layout.png"],
+		"images": ["images/simon-art-layout.png"],
 		"url": "http://vultor.com/simonart"
 	},
 	{
 		"title": "Sunshot Solar VA",
 		"dates": 2013,
 		"description": "Sunshot Solar Virginia promotes the use of solar energy in Virginia. Learn about Virginia solar incentives, how solar works, solar efficiency, solar costs, and more. Built from scratch on Twitter Bootstrap.",
-		"images": ["../portfolio/images/hand-sun-logo.png"],
+		"images": ["images/hand-sun-logo.png"],
 		"url": "http://sunshotsolar.com"
 	}
 	]

@@ -222,6 +222,9 @@ span {
   h1 {
     font-size: 36px;
   }
+  .text-med {
+    font-size: 1.233em;
+  }
 }
 
 #map {

@@ -291,7 +291,7 @@ var projects = {
 	{
 		"title": "Sunshot Solar VA",
 		"dates": 2013,
-		"description": "Sunshot Solar Virginia promotes the use of solar energy in Virginia. Learn about Virginia solar incentives, how solar works, solar efficiency, solar costs, and more. Built from scratch on Twitter Bootstrap.",
+		"description": "Sunshot Solar Virginia promotes the use of solar energy in Virginia. Built from scratch on Twitter Bootstrap with custom-built interactive calculator.",
 		"images": ["images/hand-sun-logo.png"],
 		"url": "http://sunshotsolar.com"
 	}

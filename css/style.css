@@ -44,7 +44,7 @@ h3 {
 
 h4 {
   font-style: bold;
-  font-size: 1.1em;
+  font-size: 1.266em;
   color: #4A4A4A;
   line-height: 20px;
 }
@@ -89,6 +89,10 @@ a {
   display: block;
 }
 
+a h4 {
+  color: #1199C3;
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 1.3em;
@@ -122,13 +126,13 @@ a {
   color: #FFFFFF;
 }
 
-.gray {
-  background-color: #F3F3F3;
+.blue {
+  background-color: #0088CC;
   padding-bottom: 10px;
 }
 
-.dark-gray {
-  background-color: #0088CC;
+.gray {
+  background-color: #F3F3F3;
 }
 
 /* TODO: Replace with image later */

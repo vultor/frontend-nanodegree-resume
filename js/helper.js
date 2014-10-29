@@ -39,15 +39,15 @@ var HTMLworkDescription = "<p><br>%data%</p>";
 var HTMLprojectRow = "<div class='row projects-row'></div>";
 var HTMLprojectStart = "<div class='project-entry col-md-3'></div>";
 var HTMLprojectURL = "<a href='%data%'>";
-var HTMLprojectTitle = "%data%</a>";
+var HTMLprojectTitle = "<h4>%data%</h4></a>";
 var HTMLprojectDates = "<div class='date-text'>%data%</div>";
 var HTMLprojectDescription = "<p><br>%data%</p>";
 var HTMLprojectImage = "<img class='img-responsive' src='%data%'></a>";
 
 var HTMLschoolStart = "<div class='education-entry'></div>";
 var HTMLschoolURL = "<a href='%data%'>";
-var HTMLschoolName = "%data%";
-var HTMLschoolDegree = " -- %data%</a>";
+var HTMLschoolName = "<h4>%data%";
+var HTMLschoolDegree = " -- %data%</h4></a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
 var HTMLschoolMajor = "<em><br>Major: %data%</em>"

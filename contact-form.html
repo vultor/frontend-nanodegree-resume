@@ -1,0 +1,70 @@
+<!--
+  files required:
+    1. Bootstrap css and js
+    2. mailer.php
+    3. CaptchaSecurityImages.php
+    4. monofont.tff
+
+  Make sure to hide the robotic class through CSS
+    .robotic {display: none;}
+    or with JS
+    $('.robotic').hide();
+
+  Update mailer.php with your info
+-->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Shoot me a Message</h4>
+      </div>
+      <div class="modal-body">
+        <section id="contact">
+          <div id="contact-form">
+            <span class="help-block"></span>
+            <form method="post" action="mailer.php" role="form">
+              <!-- name -->
+              <div class="form-group">
+                <input type="text" class="form-control" id="cfName" placeholder="Your Name">
+              </div>
+              
+              <!-- email -->
+              <div class="form-group">
+                <input type="email" class="form-control" id="cfEmail" placeholder="your@email.com">
+              </div>
+              
+              <!-- The following field is for robots only, invisible to humans: -->
+              <div class="robotic">
+                Leave this empty.<input type="url" name="url">
+              </div>
+              
+              <!-- subject -->
+              <div class="form-group">
+                <input type="text" class="form-control" id="cfSubject" placeholder="Subject">
+              </div>
+              
+              <!-- message -->
+              <div class="form-group">
+                <textarea rows="6" class="form-control" id="cfMessage" placeholder="Your message..."></textarea>
+              </div>
+
+              <!-- captcha -->
+              <div class="form-group">
+                <img src="CaptchaSecurityImages.php" alt="captcha">
+                <label for="security_code">Type the security code:</label>
+                <input type="text" class="form-control" id="security_code" name="security_code">
+              </div>
+              
+              <!-- submit -->
+              <button type="submit" class="btn btn-lg btn-success">Send the Message</button>
+
+            </form>
+          </div><!-- /#contact-form -->
+        </section>
+      </div>
+    </div>
+  </div>
+</div><!--/.modal -->

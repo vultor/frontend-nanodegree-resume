@@ -182,6 +182,11 @@ hr {
   margin-bottom: 5px;
 }
 
+.help-block {
+  color: red;
+  font-weight: bold;
+}
+
 /* Bar chart stuff */
 .chart div {
   font: 10px sans-serif;

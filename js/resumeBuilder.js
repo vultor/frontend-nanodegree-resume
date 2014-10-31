@@ -245,18 +245,26 @@ work.display();
 $("#header img.web").mouseenter(function() {
 	$("#header span.role:first").show();
 	$("#header span.role:last").hide();
-	$(".work-entry").slideDown();
 	formattedRole = HTMLheaderRole.replace("%data%", bio.roles[0]);
 });
 
 $("#header img.teacher").mouseenter(function() {
 	$("#header span.role:first").hide();
 	$("#header span.role:last").show();
-	$("#workExperience :nth-child(2)").slideUp();
-	$("#workExperience :nth-child(7)").slideUp();
 	formattedRole = HTMLheaderRole.replace("%data%", bio.roles[1]);
 });
 
+$("#header img.web").click(function() {
+	$(".work-entry").slideUp();
+	$("#workExperience :nth-child(5)").slideDown();
+	$("#workExperience :nth-child(10)").slideDown();
+});
+
+$("#header img.teacher").click(function() {
+	$(".work-entry").slideDown();
+	$("#workExperience :nth-child(5)").slideUp();
+	$("#workExperience :nth-child(10)").slideUp();
+});
 
 
 /**********

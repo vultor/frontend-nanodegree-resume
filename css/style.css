@@ -7,7 +7,7 @@
   color: #000;
 }
 
-.education-entry, .work-entry, .project-entry {
+#education, #workExperience, #projects, #mapDiv {
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -50,9 +50,7 @@ h4 {
 }
 
 h2, h3 {
-  padding:10px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding:10px 0;
 }
 
 
@@ -164,6 +162,8 @@ li {
   float: left;
   padding: 10px;
   display: none;
+  cursor: pointer;
+  cursor: hand;
 }
 
 img.dark {

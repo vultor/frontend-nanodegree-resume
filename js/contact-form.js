@@ -25,7 +25,7 @@ $('#cfEmail').focusout(function(){
 	}
 });
 
-$('button').click(function(submit) {
+$('form button').click(function(submit) {
 	if($('#cfName').val().length == 0) {
 		$('.help-block-name').show();
 		$('.help-block-name').text("Please enter your name.");

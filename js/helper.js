@@ -67,7 +67,7 @@ var googleMap = "<div id='map'></div>";
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
 $(document).ready(function() {
-  $('button').click(function() {
+  $('#topContacts :nth-child(4)').click(function() {
     var iName = inName() || function(){};
     $('#name').html(iName);  
   });
@@ -128,6 +128,12 @@ function initializeMap() {
     
     // initializes an empty array
     var locations = [];
+
+    // iterates through travel locations and appends each location to
+    // the locations array
+    for (var travel in travels.trips) {
+      locations.push(travels.trips[travel].location);
+    }
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);

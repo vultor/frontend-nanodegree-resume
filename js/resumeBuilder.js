@@ -345,6 +345,93 @@ projects.display();
 
 /**********
  *
+ * TRAVELS
+ *
+***********/
+var travels = {
+	"trips": [
+	  {
+		"name": "Surf trip",
+		"location": "Costa Rica"
+	  },
+	  {
+		"name": "Aussy Trip",
+		"location": "Sydney, NSW, Australia"
+	  },
+	  {
+		"name": "Cambodia",
+		"location": "Phnom Penh, Cambodia"
+	  },
+	  {
+		"name": "China",
+		"location": "Beijing, China",
+		"dates": "2007"
+	  },
+	  {
+		"name": "Bali Dream",
+		"location": "Bali, Indonesia",
+		"dates": "2007"
+	  },
+	  {
+		"name": "3 Times to Japan",
+		"location": "Tokyo, Japan",
+		"dates": "2013"
+	  },
+	  {
+		"name": "Baja Mexico",
+		"location": "Ensenada, Mexico",
+		"dates": "2009"
+	  },
+	  {
+		"name": "NZ Top to Bottom",
+		"location": "New Zealand",
+		"dates": "2007"
+	  },
+	  {
+		"name": "Volunteer trip Abroad",
+		"location": "Pisco, Peru",
+		"dates": "2008"
+	  },
+	  {
+		"name": "2 Times to Philippines",
+		"location": "El Nido, Philippines",
+		"dates": "2013"
+	  },
+	  {
+		"name": "Clean Country",
+		"location": "Singapore",
+		"dates": "2010"
+	  },
+	  {
+		"name": "Many times to Thailand",
+		"location": "Bangkok, Thailand",
+		"dates": "2011"
+	  },
+	  {
+		"name": "Rock Climbing Trip",
+		"location": "Halong Bay, Vietnam",
+		"dates": "2007"
+	  },
+	  {
+		"name": "All over Malaysia",
+		"location": "Perhentian Islands, Malaysia",
+		"dates": "2010"
+	  },
+	  {
+		"name": "Accidental England",
+		"location": "London, England",
+		"dates": "2002"
+	  },
+	  {
+		"name": "First trip Abroad",
+		"location": "Dublin, Ireland",
+		"dates": "2002"
+	  }
+	]
+}
+
+/**********
+ *
  * EXTRAS
  *
 ***********/

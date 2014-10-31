@@ -208,6 +208,10 @@ span {
   text-align: center;
 }
 
+#topContacts :nth-child(4) {
+  cursor: nw-resize;
+}
+
 @media only screen and (max-width: 1024px) {
   #letsConnect {
     margin-top: 5%;

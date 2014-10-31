@@ -182,7 +182,8 @@ hr {
   margin-bottom: 5px;
 }
 
-.help-block {
+.help-block-name, .help-block-email {
+  display: none;
   color: red;
   font-weight: bold;
 }

@@ -25,17 +25,21 @@ $('#cfEmail').focusout(function(){
 	}
 });
 
-$('button').click(function() {
-	if($('#cfEmail').val().length == 0) {
-		$('.help-block-email').show();
-		$('.help-block-email').text("Please enter your email.");
-		$('.email-group').addClass('has-error').focus();
-		return false;
-	}
+$('button').click(function(submit) {
 	if($('#cfName').val().length == 0) {
 		$('.help-block-name').show();
 		$('.help-block-name').text("Please enter your name.");
-		$('.name-group').addClass('has-error').focus();
-		return false;
+		$('.name-group').addClass('has-error');
+		submit.preventDefault();
 	} // end if length 0
+	if($('#cfEmail').val().length == 0) {
+		$('.help-block-email').show();
+		$('.help-block-email').text("Please enter your email.");
+		$('.email-group').addClass('has-error');
+		submit.preventDefault();
+	}
+	else {
+		$('#contact-message').modal();
+		submit.preventDefault();
+	}
 }); // end button click

@@ -28,7 +28,7 @@ h1 {
 }
 
 h2 {
-  font-style: bold;
+  font-weight: bold;
   font-size: 2em;
   color: #333;
   line-height: 29px;
@@ -43,7 +43,7 @@ h3 {
 }
 
 h4 {
-  font-style: bold;
+  font-weight: bold;
   font-size: 1.266em;
   color: #4A4A4A;
   line-height: 20px;
@@ -163,7 +163,6 @@ li {
   padding: 10px;
   display: none;
   cursor: pointer;
-  cursor: hand;
 }
 
 img.dark {

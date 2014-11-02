@@ -445,12 +445,5 @@ function inName() {
     return aName[0] + " " + aName[1];
 }
 
-// click locations
-$(document).click(function(loc) {
-	var x = loc.pageX;
-	var y = loc.pageY;
-	logClicks(x,y);
-});
-
 // display map
 $("#mapDiv").append(googleMap);
